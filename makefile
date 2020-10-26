@@ -31,6 +31,17 @@ APPLICATION_SOURCE_FILES = main.c
 
 
 #-----------------------------------------------------------------------------#
+# PERIPHERALS SETTINGS #
+#-----------------------------------------------------------------------------#
+
+PERIPHERALS_PATH = ./peripherals
+PERIPHERALS_INCLUDE_DIR = $(PERIPHERALS_PATH)/include
+PERIPHERALS_SOURCE_DIR = $(PERIPHERALS_PATH)/source
+PERIPHERALS_SOURCE_FILES = system_clock.c
+
+
+
+#-----------------------------------------------------------------------------#
 # SENSORS SETTINGS #
 #-----------------------------------------------------------------------------#
 
