@@ -31,6 +31,17 @@ APPLICATION_SOURCE_FILES = main.c
 
 
 #-----------------------------------------------------------------------------#
+# PERIPHERALS SETTINGS #
+#-----------------------------------------------------------------------------#
+
+PERIPHERALS_PATH = ./peripherals
+PERIPHERALS_INCLUDE_DIR = $(PERIPHERALS_PATH)/include
+PERIPHERALS_SOURCE_DIR = $(PERIPHERALS_PATH)/source
+PERIPHERALS_SOURCE_FILES = system_clock.c
+
+
+
+#-----------------------------------------------------------------------------#
 # SENSORS SETTINGS #
 #-----------------------------------------------------------------------------#
 
@@ -110,6 +121,7 @@ MCU = -DSTM32F407xx
 PERIPHERALS_DRIVERS_TYPE = -DUSE_FULL_LL_DRIVER
 
 HEADER_FILES = -I$(APPLICATION_INCLUDE_DIR)
+HEADER_FILES += -I$(PERIPHERALS_INCLUDE_DIR)
 HEADER_FILES += -I$(SENSORS_INCLUDE_DIR)
 HEADER_FILES += -I$(SERVICES_INCLUDE_DIR)
 HEADER_FILES += -I$(PERIPHERALS_DRIVERS_INCLUDE_DIR)
@@ -161,6 +173,8 @@ HEX_FILE = $(addprefix $(BUILD_DIR)/, $(PROJECT_NAME).hex)
 
 SOURCE_FILES = $(addprefix $(APPLICATION_SOURCE_DIR)/, \
 	$(APPLICATION_SOURCE_FILES))
+SOURCE_FILES += $(addprefix $(PERIPHERALS_SOURCE_DIR)/, \
+	$(PERIPHERALS_SOURCE_FILES))
 SOURCE_FILES += $(addprefix $(SENSORS_SOURCE_DIR)/, \
 	$(SENSORS_SOURCE_FILES))
 SOURCE_FILES += $(addprefix $(SERVICES_SOURCE_DIR)/, \
