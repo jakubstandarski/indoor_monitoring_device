@@ -29,22 +29,6 @@ void delay_timer_init(void)
 
 void delay_ms(uint32_t milliseconds)
 {
-    delay_time_counter = milliseconds;
-    while (delay_time_counter != 0) {
-        ;
-    }
-}
-
-
-
-/*****************************************************************************/
-/* INTERRUPTS HANDLERS */
-/*****************************************************************************/
-
-void SysTick_Handler(void)
-{
-    if (delay_time_counter != 0) {
-        delay_time_counter--;
-    }
+    LL_mDelay(milliseconds);
 }
 
