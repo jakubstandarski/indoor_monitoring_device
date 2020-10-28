@@ -32,3 +32,16 @@ circular_buffer_status_t circular_buffer_init(
     return CIRCULAR_BUFFER_STATUS_OK;
 }
 
+
+
+circular_buffer_status_t circular_buffer_is_full(
+    circular_buffer_t *circular_buffer
+)
+{
+    if (circular_buffer->items_count == CIRCULAR_BUFFER_SIZE) {
+        return CIRCULAR_BUFFER_STATUS_FULL;
+    } else {
+        return CIRCULAR_BUFFER_STATUS_NOT_FULL;
+    }
+}
+
