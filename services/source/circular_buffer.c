@@ -81,3 +81,26 @@ circular_buffer_status_t circular_buffer_put_item(
     return CIRCULAR_BUFFER_STATUS_OK;
 }
 
+
+
+circular_buffer_status_t circular_buffer_get_item(
+    circular_buffer_t *circular_buffer,
+    uint8_t *place_to_store_item
+)
+{
+    if (circular_buffer_is_empty(circular_buffer) ==
+        CIRCULAR_BUFFER_STATUS_EMPTY) {
+            return CIRCULAR_BUFFER_STATUS_EMPTY;
+    }
+
+    if (circular_buffer->tail == CIRCULAR_BUFFER_SIZE) {
+        circular_buffer->tail = 0;
+    }
+
+    *place_to_store_item = circular_buffer->buffer[circular_buffer->tail];
+    circular_buffer->items_count--;
+    circular_buffer->tail++;
+
+    return CIRCULAR_BUFFER_STATUS_OK;
+}
+
