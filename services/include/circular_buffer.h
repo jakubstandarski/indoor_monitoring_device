@@ -32,6 +32,20 @@ typedef enum circular_buffer_status {
 
 
 
+/*****************************************************************************/
+/* STRUCTURES */
+/*****************************************************************************/
+
+typedef struct circular_buffer {
+    uint8_t buffer[CIRCULAR_BUFFER_SIZE];
+    uint32_t head;
+    uint32_t tail;
+    uint32_t items_count;
+}circular_buffer_t;
+
+
+
+
 
 #endif /* CIRCULAR_BUFFER_H */
 
