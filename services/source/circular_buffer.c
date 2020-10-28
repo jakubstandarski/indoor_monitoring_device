@@ -13,6 +13,7 @@
 #include "circular_buffer.h"
 
 #include <stdint.h>
+#include <string.h>
 
 
 
