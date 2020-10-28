@@ -57,6 +57,10 @@ circular_buffer_status_t circular_buffer_is_full(
     circular_buffer_t *circular_buffer
 );
 
+circular_buffer_status_t circular_buffer_is_empty(
+    circular_buffer_t *circular_buffer
+);
+
 
 
 #endif /* CIRCULAR_BUFFER_H */
