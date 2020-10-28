@@ -58,3 +58,26 @@ circular_buffer_status_t circular_buffer_is_empty(
     }
 }
 
+
+
+circular_buffer_status_t circular_buffer_put_item(
+    circular_buffer_t *circular_buffer,
+    uint8_t item
+)
+{
+    if (circular_buffer_is_full(circular_buffer) ==
+        CIRCULAR_BUFFER_STATUS_FULL) {
+            return CIRCULAR_BUFFER_STATUS_FULL;
+    }
+
+    if (circular_buffer->head == CIRCULAR_BUFFER_SIZE) {
+        circular_buffer->head = 0;
+    }
+
+    circular_buffer->buffer[circular_buffer->head] = item;
+    circular_buffer->items_count++;
+    circular_buffer->head++;
+
+    return CIRCULAR_BUFFER_STATUS_OK;
+}
+
