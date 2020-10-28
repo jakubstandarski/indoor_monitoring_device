@@ -66,6 +66,11 @@ circular_buffer_status_t circular_buffer_put_item(
     uint8_t item
 );
 
+circular_buffer_status_t circular_buffer_get_item(
+    circular_buffer_t *circular_buffer,
+    uint8_t *place_to_store_item
+);
+
 
 
 #endif /* CIRCULAR_BUFFER_H */
