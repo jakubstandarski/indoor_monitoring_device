@@ -45,3 +45,16 @@ circular_buffer_status_t circular_buffer_is_full(
     }
 }
 
+
+
+circular_buffer_status_t circular_buffer_is_empty(
+    circular_buffer_t *circular_buffer
+)
+{
+    if (circular_buffer->items_count == 0) {
+        return CIRCULAR_BUFFER_STATUS_EMPTY;
+    } else {
+        return CIRCULAR_BUFFER_STATUS_NOT_EMPTY;
+    }
+}
+
