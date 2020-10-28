@@ -45,6 +45,15 @@ typedef struct circular_buffer {
 
 
 
+/*****************************************************************************/
+/* PUBLIC FUNCTIONS PROTOTYPES */
+/*****************************************************************************/
+
+circular_buffer_status_t circular_buffer_init(
+    circular_buffer_t *circular_buffer
+);
+
+
 
 
 #endif /* CIRCULAR_BUFFER_H */
