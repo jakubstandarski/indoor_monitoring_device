@@ -15,6 +15,8 @@
 
 void debug_init(void);
 
+void debug_printf(const char *text, ...);
+
 
 
 #endif /* DEBUG_H */
