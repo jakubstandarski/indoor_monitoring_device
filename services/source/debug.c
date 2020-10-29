@@ -131,3 +131,23 @@ static void debug_uart_peripheral_init(void)
     LL_USART_DisableSCLKOutput(DEBUG_UART_PERIPHERAL);
 }
 
+
+
+/*****************************************************************************/
+/* INTERRUPT HANDLERS DEFINITIONS */
+/*****************************************************************************/
+
+void USART1_IRQHandler(void)
+{
+    uint8_t data_byte = 0;
+    if (LL_USART_IsActiveFlag_TXE(DEBUG_UART_PERIPHERAL) == 1) {
+        circular_buffer_get_item(&debug_buffer, &data_byte);
+        LL_USART_TransmitData8(DEBUG_UART_PERIPHERAL, data_byte);
+
+        if (circular_buffer_is_empty(&debug_buffer) ==
+            CIRCULAR_BUFFER_STATUS_EMPTY) {
+                LL_USART_DisableIT_TXE(DEBUG_UART_PERIPHERAL);
+        }
+    }
+}
+
