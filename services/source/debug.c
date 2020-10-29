@@ -26,6 +26,7 @@
 /*****************************************************************************/
 
 static void debug_uart_gpio_init(void);
+static void debug_uart_peripheral_init(void);
 
 
 
@@ -46,5 +47,25 @@ static void debug_uart_gpio_init(void)
         .Alternate = LL_GPIO_AF_7
     };
     LL_GPIO_Init(DEBUG_UART_GPIO_PORT, &uart_gpio_settings);
+}
+
+
+
+static void debug_uart_peripheral_init(void)
+{
+    LL_APB2_GRP1_EnableClock(DEBUG_UART_PERIPHERAL_CLOCK);
+
+    LL_USART_InitTypeDef uart_peripheral_settings = {
+        .BaudRate = (uint32_t)115200,
+        .DataWidth = LL_USART_DATAWIDTH_8B,
+        .StopBits = LL_USART_STOPBITS_1,
+        .Parity = LL_USART_PARITY_NONE,
+        .TransferDirection = LL_USART_DIRECTION_TX,
+        .HardwareFlowControl = LL_USART_HWCONTROL_NONE,
+        .OverSampling = LL_USART_OVERSAMPLING_16
+    };
+    LL_USART_Init(DEBUG_UART_PERIPHERAL, &uart_peripheral_settings);
+
+    LL_USART_DisableSCLKOutput(DEBUG_UART_PERIPHERAL);
 }
 
