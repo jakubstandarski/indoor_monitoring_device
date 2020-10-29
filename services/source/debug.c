@@ -61,6 +61,7 @@ void debug_init(void)
 {
     debug_uart_gpio_init();
     debug_uart_peripheral_init();
+    circular_buffer_init(&debug_buffer);
 }
 
 
