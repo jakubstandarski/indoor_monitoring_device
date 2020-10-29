@@ -81,15 +81,12 @@ void debug_printf(const char *text, ...)
 
     uint32_t formatted_message_length = strlen(formatted_message);
     for (uint32_t index = 0; index < formatted_message_length; index++) {
-        while (circular_buffer_is_full(&debug_buffer) ==
-            CIRCULAR_BUFFER_STATUS_FULL) {
-                ;
+        if (circular_buffer_put_item(&debug_buffer,
+            (char)formatted_message[index]) == CIRCULAR_BUFFER_STATUS_FULL) {
+                break;
         }
-        circular_buffer_put_item(&debug_buffer,
-            (char)formatted_message[index]);
     }
 
-    LL_USART_Enable(DEBUG_UART_PERIPHERAL);
     LL_USART_EnableIT_TXE(DEBUG_UART_PERIPHERAL);
 }
 
