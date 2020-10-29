@@ -129,6 +129,9 @@ static void debug_uart_peripheral_init(void)
     LL_USART_Init(DEBUG_UART_PERIPHERAL, &uart_peripheral_settings);
 
     LL_USART_DisableSCLKOutput(DEBUG_UART_PERIPHERAL);
+
+    LL_USART_Enable(DEBUG_UART_PERIPHERAL);
+    NVIC_EnableIRQ(USART1_IRQn);
 }
 
 
