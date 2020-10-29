@@ -22,6 +22,19 @@
 
 
 /*****************************************************************************/
+/* PRIVATE DEFINES */
+/*****************************************************************************/
+
+#define DEBUG_UART_GPIO_PORT        GPIOB
+#define DEBUG_UART_GPIO_PORT_CLOCK  LL_AHB1_GRP1_PERIPH_GPIOB
+#define DEBUG_UART_GPIO_PIN_TX      LL_GPIO_PIN_6
+
+#define DEBUG_UART_PERIPHERAL       USART1
+#define DEBUG_UART_PERIPHERAL_CLOCK LL_APB2_GRP1_PERIPH_USART1
+
+
+
+/*****************************************************************************/
 /* PRIVATE FUNCTIONS PROTOTYPES */
 /*****************************************************************************/
 
