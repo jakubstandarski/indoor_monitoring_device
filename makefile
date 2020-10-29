@@ -155,6 +155,7 @@ LINKER_SCRIPT_FILE = stm32f407vgtx_flash.ld
 LINKER_FLAGS = -T$(LINKER_SCRIPT_DIR)/$(LINKER_SCRIPT_FILE)
 LINKER_FLAGS += $(ISA_TYPE) $(CPU_TYPE)
 LINKER_FLAGS += -Wl,--gc-sections
+LINKER_FLAGS += --specs=nosys.specs
 
 
 
