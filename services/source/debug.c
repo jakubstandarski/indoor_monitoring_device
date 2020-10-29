@@ -32,6 +32,8 @@
 #define DEBUG_UART_PERIPHERAL       USART1
 #define DEBUG_UART_PERIPHERAL_CLOCK LL_APB2_GRP1_PERIPH_USART1
 
+#define DEBUG_MESSAGE_SIZE_MAX      CIRCULAR_BUFFER_SIZE
+
 
 
 /*****************************************************************************/
