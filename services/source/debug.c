@@ -55,6 +55,30 @@ void debug_init(void)
 
 
 
+void debug_printf(const char *text, ...)
+{
+    char formatted_message[DEBUG_MESSAGE_SIZE_MAX];
+    va_list arguments;
+    va_start(arguments, text);
+    vsprintf(formatted_message, text, arguments);
+    va_end(arguments);
+
+    uint32_t formatted_message_length = strlen(formatted_message);
+    for (uint32_t index = 0; index < formatted_message_length; index++) {
+        while (circular_buffer_is_full(&debug_buffer) ==
+            CIRCULAR_BUFFER_STATUS_FULL) {
+                ;
+        }
+        circular_buffer_put_item(&debug_buffer,
+            (char)formatted_message[index]);
+    }
+
+    LL_USART_Enable(DEBUG_UART_PERIPHERAL);
+    LL_USART_EnableIT_TXE(DEBUG_UART_PERIPHERAL);
+}
+
+
+
 /*****************************************************************************/
 /* PRIVATE FUNCTIONS DEFINITIONS */
 /*****************************************************************************/
