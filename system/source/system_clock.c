@@ -11,6 +11,7 @@
 /*****************************************************************************/
 
 #include "system_clock.h"
+#include "debug.h"
 
 #include "stm32f4xx_ll_rcc.h"
 #include "stm32f4xx_ll_system.h"
