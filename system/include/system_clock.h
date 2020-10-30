@@ -26,5 +26,20 @@ void system_clock_init(void);
 
 
 
+/**
+ * @brief   Print system clocks frequencies (i.e. system clock source
+ *          frequency, AHB1 (HCLK) frequency, APB1 frequency, APB2 frequency).
+ *
+ * @param   None.
+ *
+ * @retval  None.
+ *
+ * @note    Before calling this function, you must call "debug_init()"
+ *          function and connect UART-USB converter to your PC.
+ */
+void system_clock_print_frequencies(void);
+
+
+
 #endif /*SYSTEM_CLOCK_H */
 
