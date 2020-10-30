@@ -62,3 +62,20 @@ void system_clock_init(void)
     LL_SetSystemCoreClock(168000000);
 }
 
+
+
+void system_clock_print_frequencies(void)
+{
+    LL_RCC_ClocksTypeDef system_clocks_frequencies = {0};
+    LL_RCC_GetSystemClocksFreq(&system_clocks_frequencies);
+
+    debug_printf("System clock frequency: %u\n",
+        system_clocks_frequencies.SYSCLK_Frequency);
+    debug_printf("AHB1 (HCLK) frequency: %u\n",
+        system_clocks_frequencies.HCLK_Frequency);
+    debug_printf("APB1 frequency: %u\n",
+        system_clocks_frequencies.PCLK1_Frequency);
+    debug_printf("APB2 frequency: %u\n",
+        system_clocks_frequencies.PCLK2_Frequency);
+}
+
