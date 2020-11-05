@@ -38,6 +38,7 @@ SYSTEM_PATH = ./system
 SYSTEM_INCLUDE_DIR = $(SYSTEM_PATH)/include
 SYSTEM_SOURCE_DIR = $(SYSTEM_PATH)/source
 SYSTEM_SOURCE_FILES = system_clock.c
+SYSTEM_SOURCE_FILES += pwr.c
 
 
 
